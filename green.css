@@ -1,0 +1,47 @@
+.green {
+    width: calc( var(--grid-cell)* 2 );
+    height: calc( var(--grid-cell)* 2 );
+    position: absolute;
+    overflow:hidden;
+}
+
+.green-shadow {
+    width: calc( var(--grid-cell)* 2 );
+    height: calc( var(--grid-cell)* 2 );
+    position: absolute;
+    left:0;
+    top:0;
+    background: url("https://assets.codepen.io/21542/DemoRpgCharacterShadow.png") no-repeat no-repeat;
+    background-size: 100%;
+}
+
+.green_spritesheet {
+    position: absolute;
+    /*background: url("https://assets.codepen.io/21542/DemoRpgCharacter.png") no-repeat no-repeat;*/
+    background: url("./Green-Spritesheet.png");
+    background-size: 100%;
+    width: calc( var(--grid-cell)* 8 );
+    height: calc( var(--grid-cell)* 8 );
+}
+
+.green[facing="right"] .green_spritesheet {
+    background-position-y: calc( var(--pixel-size) * -96 ); /* -144 */
+}
+.green[facing="up"] .green_spritesheet {
+    background-position-y: calc( var(--pixel-size) * -64 ); /* -96 */
+}
+.green[facing="left"] .green_spritesheet {
+    background-position-y: calc( var(--pixel-size) * -32 ); /* -48 */
+}
+.green[walking="true"] .green_spritesheet {
+    animation: walkAnimation 0.6s steps(4) infinite; 
+}
+    
+@keyframes walkAnimation {
+    from {
+        transform: translate3d(0%,0%,0);
+    }
+    to {
+        transform: translate3d(-100%,0%,0);
+    }
+}
